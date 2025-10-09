@@ -40,16 +40,24 @@ void CriarCobra(){
 void IniciarJogo(){
     initscr(); //configurações do ncurses
     cbreak();
+    nodelay(stdscr, TRUE);
     noecho();
+
     curs_set(0);
+
 
     CriarTela();
     CriarCobra();
 
 }
 
+
+
 int EncerrarJogo(){
 
+    if(cobra.x[0] == 0 || cobra.x[0] == LARGURA-1 || cobra.y[0] == 0 || cobra.y[0] == ALTURA-1){
+        return 1;
+    }
 
 return 0;
 }
@@ -71,29 +79,34 @@ void Desenhar(){
     refresh();
 }
 
+
 void AtualizarPosicao(){
-    int NovoX = cobra.x[0]+ cobra.direcaoX;
-    int NovoY = cobra.y[0]+ cobra.direcaoY;
 
-    cobra.x[0] = NovoX;
-    cobra.y[0] = NovoY;
+    char dir = getch();
 
-    /*switch (dir){
+    switch (dir){
 
     case 'w':
-        NovoY = cobra.y[0]-1;
+        cobra.direcaoY = -1;
+        cobra.direcaoX = 0;
         break;
     case 's':
-        NovoY = cobra.y[0]+1;
+        cobra.direcaoY = +1;
+        cobra.direcaoX = 0;
         break;
     case 'a':
-        NovoX = cobra.x[0]-1;
+        cobra.direcaoX = -1;
+        cobra.direcaoY = 0;
         break;
     case 'd':
-        NovoX = cobra.x[0]+1;
+        cobra.direcaoX = +1;
+        cobra.direcaoY = 0;
         break;
 
-    }*/
+    }
+
+    cobra.x[0]+= cobra.direcaoX;
+    cobra.y[0]+= cobra.direcaoY;
 
 }
 
@@ -104,10 +117,8 @@ int main(){
     do{
 
         Desenhar();
-        //aguardar entrada do user
-
         AtualizarPosicao();
-        napms(100); //aguardar
+        napms(ESPERA_PADRAO); //aguardar
 
 
     } while(!EncerrarJogo());

@@ -4,6 +4,7 @@
 #define LARGURA 40
 #define ALTURA 20
 #define TAMANHO_MAXIMO 100
+#define ESPERA_PADRAO 100
 
 void IniciarJogo();
 int EncerrarJogo();
@@ -11,6 +12,7 @@ void CriarTela();
 void CriarCobra();
 void Desenhar();
 void AtualizarPosicao();
+
 
 typedef struct{
     int x[TAMANHO_MAXIMO];
