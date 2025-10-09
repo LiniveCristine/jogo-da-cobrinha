@@ -10,6 +10,7 @@ int EncerrarJogo();
 void CriarTela();
 void CriarCobra();
 void Desenhar();
+void AtualizarPosicao();
 
 typedef struct{
     int x[TAMANHO_MAXIMO];

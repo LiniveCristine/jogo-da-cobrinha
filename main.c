@@ -68,9 +68,33 @@ void Desenhar(){
         }
     }
 
-
-
     refresh();
+}
+
+void AtualizarPosicao(){
+    int NovoX = cobra.x[0]+ cobra.direcaoX;
+    int NovoY = cobra.y[0]+ cobra.direcaoY;
+
+    cobra.x[0] = NovoX;
+    cobra.y[0] = NovoY;
+
+    /*switch (dir){
+
+    case 'w':
+        NovoY = cobra.y[0]-1;
+        break;
+    case 's':
+        NovoY = cobra.y[0]+1;
+        break;
+    case 'a':
+        NovoX = cobra.x[0]-1;
+        break;
+    case 'd':
+        NovoX = cobra.x[0]+1;
+        break;
+
+    }*/
+
 }
 
 int main(){
@@ -81,7 +105,8 @@ int main(){
 
         Desenhar();
         //aguardar entrada do user
-        //atualizar posição
+
+        AtualizarPosicao();
         napms(100); //aguardar
 
 

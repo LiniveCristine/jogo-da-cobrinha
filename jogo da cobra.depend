@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1759947651 source:c:\users\acer\documents\estudos\jogo da cobra\main.c
+1759975999 source:c:\users\acer\documents\estudos\jogo da cobra\main.c
 	<curses.h>
 	<stdlib.h>
 	<time.h>
@@ -12,5 +12,5 @@
 	<wchar.h>
 	<stdbool.h>
 
-1759946325 c:\users\acer\documents\estudos\jogo da cobra\cobra.h
+1759975844 c:\users\acer\documents\estudos\jogo da cobra\cobra.h
 
