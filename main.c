@@ -33,7 +33,6 @@ void CriarCobra(){
     cobra.direcaoX = 1;
     cobra.direcaoY = 0;
 
-
 }
 
 
@@ -42,9 +41,7 @@ void IniciarJogo(){
     cbreak();
     nodelay(stdscr, TRUE);
     noecho();
-
     curs_set(0);
-
 
     CriarTela();
     CriarCobra();
@@ -63,6 +60,14 @@ return 0;
 }
 
 void Desenhar(){
+
+     for(int i = 1; i < ALTURA-1; i++){
+        for(int n = 1; n < LARGURA-1; n++ ){
+
+            Tela[i][n] = ' ';
+
+        }
+    }
 
     for(int i = 0; i < cobra.compriento; i++){
         Tela[cobra.y[i]][cobra.x[i]] = '@'; // A posição da cobra NÃO será VAZIO, vai receber @
@@ -87,19 +92,23 @@ void AtualizarPosicao(){
     switch (dir){
 
     case 'w':
-        cobra.direcaoY = -1;
+        if(cobra.direcaoY != +1)
+            cobra.direcaoY = -1;
         cobra.direcaoX = 0;
         break;
     case 's':
-        cobra.direcaoY = +1;
+        if(cobra.direcaoY != -1)
+            cobra.direcaoY = +1;
         cobra.direcaoX = 0;
         break;
     case 'a':
-        cobra.direcaoX = -1;
+        if(cobra.direcaoX != +1)
+            cobra.direcaoX = -1;
         cobra.direcaoY = 0;
         break;
     case 'd':
-        cobra.direcaoX = +1;
+        if(cobra.direcaoX = -1)
+            cobra.direcaoX = +1;
         cobra.direcaoY = 0;
         break;
 
