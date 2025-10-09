@@ -6,6 +6,7 @@
 
 
 Cobra cobra;
+Fruta fruta;
 char Tela[ALTURA][LARGURA];
 
 void CriarTela(){
@@ -45,6 +46,7 @@ void IniciarJogo(){
 
     CriarTela();
     CriarCobra();
+    GerarFuta();
 
 }
 
@@ -59,9 +61,23 @@ int EncerrarJogo(){
 return 0;
 }
 
+void GerarFuta(){
+
+    srand(time(0));
+    fruta.x = rand()%(LARGURA - 2) + 1;
+    fruta.y = rand()%(ALTURA - 2) + 1;
+
+    if(fruta.x == LARGURA/2 || fruta.y == ALTURA/2){ //posição da fruta NÃO pode ser igual a posição inicial da cobra
+        fruta.x++;
+        fruta.y++;
+    }
+
+}
+
+
 void Desenhar(){
 
-     for(int i = 1; i < ALTURA-1; i++){
+     for(int i = 1; i < ALTURA-1; i++){ //desenhar tela em branco
         for(int n = 1; n < LARGURA-1; n++ ){
 
             Tela[i][n] = ' ';
@@ -69,11 +85,13 @@ void Desenhar(){
         }
     }
 
+    Tela[fruta.y][fruta.x] = '&'; //desenhar fruta
+
     for(int i = 0; i < cobra.compriento; i++){
         Tela[cobra.y[i]][cobra.x[i]] = '@'; // A posição da cobra NÃO será VAZIO, vai receber @
     }
 
-    for(int i = 0; i < ALTURA; i++){   // DESENHAR bordas na tela
+    for(int i = 0; i < ALTURA; i++){
         for(int n = 0; n < LARGURA; n++ ){
 
             mvaddch(i, n, Tela[i][n]);

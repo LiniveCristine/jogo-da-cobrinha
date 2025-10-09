@@ -12,6 +12,7 @@ void CriarTela();
 void CriarCobra();
 void Desenhar();
 void AtualizarPosicao();
+void GerarFuta();
 
 
 typedef struct{
@@ -22,5 +23,11 @@ typedef struct{
     int direcaoY;
 
 }Cobra;
+
+typedef struct{
+    int x;
+    int y;
+
+}Fruta;
 
 #endif // COBRA_H_INCLUDED
