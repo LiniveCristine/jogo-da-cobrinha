@@ -125,7 +125,7 @@ void AtualizarPosicao(){
         cobra.direcaoY = 0;
         break;
     case 'd':
-        if(cobra.direcaoX = -1)
+        if(cobra.direcaoX != -1)
             cobra.direcaoX = +1;
         cobra.direcaoY = 0;
         break;
