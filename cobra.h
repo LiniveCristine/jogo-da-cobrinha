@@ -4,7 +4,7 @@
 #define LARGURA 40
 #define ALTURA 20
 #define TAMANHO_MAXIMO 100
-#define ESPERA_PADRAO 100
+
 
 void IniciarJogo();
 int EncerrarJogo();
@@ -14,6 +14,9 @@ void Desenhar();
 void AtualizarPosicao();
 void GerarFuta();
 void Pontuar();
+int Menu();
+void EscolherVelocidade(int nivel);
+int MenuEncerramento();
 
 
 typedef struct{
