@@ -9,8 +9,8 @@
 Cobra cobra;
 Fruta fruta;
 char Tela[ALTURA][LARGURA];
-int pontos = 0;
-int VelocidadeCobra = 0;
+int pontos;
+int VelocidadeCobra;
 
 
 int Menu(){
@@ -27,8 +27,7 @@ int Menu(){
     printf("    S*S.     S*S.   S*S    S*S    .S*P    .S*P  S*S  S*S.               \n");
     printf("     SSSbs   SSS    S*S    S*S  sSS*S   sSS*S   S*S   SSSbs             \n");
     printf("       YSSP  YSS    SSS    S*S  YSS'    YSS'    S*S    YSSP             \n");
-    printf("                           SP                   SP                      \n");
-    printf("                            Y                    Y                      \n");
+    printf("                           SP                   SP                      \n\n");
 
     printf("      sSSs   .S_sSSs     .S_SSSs     .S    S.     sSSs      \n");
     printf("     d**SP  .SS~YS**b   .SS~SSSSS   .SS    SS.   d**SP      \n");
@@ -57,6 +56,7 @@ int Menu(){
     }
 
 void EscolherVelocidade(int nivel){
+    VelocidadeCobra = 0;
 
     switch(nivel){
     case 1:
@@ -111,6 +111,7 @@ void IniciarJogo(){
     noecho();
     curs_set(0);
 
+    pontos = 0;
     CriarTela();
     CriarCobra();
     GerarFuta();
@@ -238,12 +239,10 @@ int MenuEncerramento(){
     printf("     S&S sSSs  S&S    S&S  S&S     S&S  S&S        \n");
     printf("     S*b `S**  S*S    S&S  S*S     S*S  S*b        \n");
     printf("     S*S   S*  S*S    S*S  S*S     S*S  S*S.       \n");
-    printf("     SS_sSSS  S*S    S*S  S*S     S*S   SSSbs      \n");
-    printf("                      SP           SP              \n");
+    printf("     SS_sSSS  S*S    S*S  S*S     S*S   SSSbs      \n\n");
 
-
-    printf("       sSSs_sSSs     .S    S.     sSSs   .S_sSSs   \n");
-    printf("     d**SP~YS**b   .SS    SS.   d**SP  .SS~YS**b   \n");
+    printf("       sSSs_sSSs                  sSSs   .S_sSSs   \n");
+    printf("     d**SP~YS**b    .SS    SS.   d**SP  .SS~YS**b   \n");
     printf("     d*S'     `S*b  S*S    S*S  d*S'    S*S   `S*b \n");
     printf("     S&S       S&S  S&S    S&S  S&S_Ss  S&S   .S*S \n");
     printf("     S&S       S&S  S&S    S&S  S&S~SP  S&S_sdSSS  \n");
