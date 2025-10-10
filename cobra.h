@@ -13,6 +13,7 @@ void CriarCobra();
 void Desenhar();
 void AtualizarPosicao();
 void GerarFuta();
+void Pontuar();
 
 
 typedef struct{

@@ -8,6 +8,7 @@
 Cobra cobra;
 Fruta fruta;
 char Tela[ALTURA][LARGURA];
+int pontos = 0;
 
 void CriarTela(){
     for(int i = 0; i < ALTURA; i++){   // Criando bordas na tela
@@ -102,6 +103,20 @@ void Desenhar(){
     refresh();
 }
 
+void Pontuar(){
+
+    if(cobra.x[0] == fruta.x && cobra.y[0] == fruta.y){
+
+        cobra.compriento++;
+        Tela[fruta.y][fruta.x] = ' ';
+        GerarFuta();
+
+        pontos++;
+
+    }
+
+}
+
 
 void AtualizarPosicao(){
 
@@ -134,6 +149,8 @@ void AtualizarPosicao(){
 
     cobra.x[0]+= cobra.direcaoX;
     cobra.y[0]+= cobra.direcaoY;
+
+    Pontuar();
 
 }
 
